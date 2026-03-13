@@ -26,8 +26,25 @@ class MyArray {
     this.length = 0;
     this.data = {};
   }
+  push(item){
+    this.data[this.length] = item
+    this.length++;
+  //  return this.length
+  }
+  get(index){
+     console.log(this.data[index])
+  }
 }
 
 const myNewArray = new MyArray();
+
+myNewArray.push('orange');
+myNewArray.push('apple');
+myNewArray.push('grapes');
+
+myNewArray.get(2);
+
+
+
 
 console.log(myNewArray);
