@@ -26,25 +26,49 @@ class MyArray {
     this.length = 0;
     this.data = {};
   }
-  push(item){
-    this.data[this.length] = item
+  push(item) {
+    this.data[this.length] = item;
     this.length++;
-  //  return this.length
+    //  return this.length
   }
-  get(index){
-     console.log(this.data[index])
+  get(index) {
+    return this.data[index];
+  }
+  pop() {
+    const lastItem = this.data[this.length - 1];
+    delete this.data[this.length - 1];
+    this.length--;
+    return lastItem;
+  }
+  shift() {
+    const firstItem = this.data[0];
+    for (let i = 0; i < this.length; i++) {
+      this.data[i] = this.data[i + 1];
+    }
+    delete this.data[this.length - 1];
+    this.length--;
+    return firstItem;
+  }
+  unshift(item) {
+    for (let i = this.length; i >0; i--) {
+      this.data[i] = this.data[i -1];
+    }
+    this.data[0]=item;
+    // delete this.data[this.length - 1];
+    this.length++;
+    return this.data;
   }
 }
 
 const myNewArray = new MyArray();
 
-myNewArray.push('orange');
-myNewArray.push('apple');
-myNewArray.push('grapes');
+myNewArray.push("orange");
+myNewArray.push("apple");
+myNewArray.push("grapes");
+// console.log("---------",myNewArray.get(2));
 
-myNewArray.get(2);
+// myNewArray.pop();
 
-
-
-
+console.log(myNewArray);
+console.log(myNewArray.unshift("mango"))
 console.log(myNewArray);
